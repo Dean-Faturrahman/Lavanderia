@@ -80,7 +80,7 @@ public class DataTerambilView extends javax.swing.JPanel {
         HapusBtn = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(181, 174, 236));
+        setBackground(new java.awt.Color(250, 251, 255));
 
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 48)); // NOI18N
         jLabel1.setText("Data Terambil");
@@ -111,6 +111,8 @@ public class DataTerambilView extends javax.swing.JPanel {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("REFRESH");
 
         javax.swing.GroupLayout RefreshBtnLayout = new javax.swing.GroupLayout(RefreshBtn);
@@ -124,7 +126,7 @@ public class DataTerambilView extends javax.swing.JPanel {
         );
         RefreshBtnLayout.setVerticalGroup(
             RefreshBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
         );
 
         HapusBtn.setBackground(new java.awt.Color(255, 51, 51));
@@ -140,6 +142,8 @@ public class DataTerambilView extends javax.swing.JPanel {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("HAPUS");
 
         javax.swing.GroupLayout HapusBtnLayout = new javax.swing.GroupLayout(HapusBtn);
@@ -161,32 +165,33 @@ public class DataTerambilView extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(165, 165, 165)
+                .addComponent(HapusBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(RefreshBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(188, 188, 188))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel1))
+                        .addGap(106, 106, 106)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(HapusBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(348, 348, 348)
-                                .addComponent(RefreshBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(100, Short.MAX_VALUE))
+                        .addGap(298, 298, 298)
+                        .addComponent(jLabel1)))
+                .addContainerGap(130, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(75, 75, 75)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(31, 31, 31)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(HapusBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(RefreshBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(RefreshBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(HapusBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(120, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
