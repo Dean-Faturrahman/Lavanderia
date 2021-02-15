@@ -29,7 +29,7 @@ public class PelangganDaoImpl implements PelangganDao{
             + " (?,?,?,?,?,?,?)";
     
     private final String updatePelanggan = "UPDATE PELANGGAN SET NAMA=?, "
-            + "ALAMAT=?, TELP=?, JENIS=?, BERAT=? WHERE NOID=?";
+            + "TANGGAL = ?, ALAMAT=?, TELP=?, JENIS=?, BERAT=? WHERE NOID=?";
   
     
     public PelangganDaoImpl(Connection connection) {
@@ -84,11 +84,12 @@ public class PelangganDaoImpl implements PelangganDao{
             connection.setAutoCommit(false);
             statement = connection.prepareStatement(updatePelanggan);
             statement.setString(1, pelanggan.getNama());
-            statement.setString(2, pelanggan.getAlamat());
-            statement.setString(3, pelanggan.getTelp());
-            statement.setString(4, pelanggan.getJenis());
-            statement.setDouble(5, pelanggan.getBerat());
-            statement.setInt(6, pelanggan.getNoid());
+            statement.setString(2, pelanggan.getTanggal());
+            statement.setString(3, pelanggan.getAlamat());
+            statement.setString(4, pelanggan.getTelp());
+            statement.setString(5, pelanggan.getJenis());
+            statement.setDouble(6, pelanggan.getBerat());
+            statement.setInt(7, pelanggan.getNoid());
             statement.executeUpdate();
             connection.commit();
         } catch (SQLException e) {

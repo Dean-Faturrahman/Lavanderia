@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package project.lavanderia.view;
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -142,7 +143,14 @@ public class AmbilPesananView extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tabelDataPesanan);
 
+        btnAmbil.setBackground(new java.awt.Color(10, 212, 66));
         btnAmbil.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAmbilMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAmbilMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnAmbilMousePressed(evt);
             }
@@ -241,7 +249,7 @@ public class AmbilPesananView extends javax.swing.JPanel {
             PreparedStatement PS2 = conn.prepareStatement(delete);
             preparedStmt.execute();
             PS2.execute();
-            JOptionPane.showMessageDialog(null, "Data dengan ID "+ rowID + "sudah di ambil");
+            JOptionPane.showMessageDialog(null, "Data dengan ID "+ rowID + " sudah di ambil");
 
             
         } catch (Exception ex) {
@@ -273,6 +281,14 @@ public class AmbilPesananView extends javax.swing.JPanel {
         System.err.println(ex.getMessage());
         }
     }//GEN-LAST:event_btnAmbilMousePressed
+
+    private void btnAmbilMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAmbilMouseEntered
+        btnAmbil.setBackground(new Color(0 ,187 ,41));
+    }//GEN-LAST:event_btnAmbilMouseEntered
+
+    private void btnAmbilMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAmbilMouseExited
+        btnAmbil.setBackground(new Color(10,212,66));
+    }//GEN-LAST:event_btnAmbilMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

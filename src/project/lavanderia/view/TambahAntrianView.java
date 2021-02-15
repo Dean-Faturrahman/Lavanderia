@@ -5,6 +5,7 @@
  */
 package project.lavanderia.view;
 
+import java.awt.Color;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -14,6 +15,8 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import project.lavanderia.controller.PelangganController;
 import project.lavanderia.database.LavanderiaDatabase;
@@ -28,7 +31,7 @@ import project.lavanderia.service.PelangganDao;
  *
  * @author Dean
  */
-public class TambahAntrianView extends javax.swing.JPanel implements PelangganListener{
+public class TambahAntrianView extends javax.swing.JPanel implements PelangganListener,ListSelectionListener{
     public String jenis;
     public double harga;
     public String tanggal;
@@ -57,6 +60,7 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
         setTanggal(null);
         txtTanggal.setText(getTanggal());
         model2 = new TabelPelangganModel();
+        TablePelanggan.getSelectionModel().addListSelectionListener(this);
         TablePelanggan.setModel(model2);
         getData();
     }
@@ -164,14 +168,16 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
         txtBerat = new javax.swing.JTextField();
         txtHarga = new javax.swing.JTextField();
         cmbJenis = new javax.swing.JComboBox<>();
-        btnTambah = new javax.swing.JButton();
         btnCekHarga = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         txtTanggal = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablePelanggan = new javax.swing.JTable();
         jLabel10 = new javax.swing.JLabel();
-        btnUbah = new javax.swing.JButton();
+        BtnTambah = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        UbahBtn = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(250, 251, 255));
         setPreferredSize(new java.awt.Dimension(1024, 695));
@@ -243,16 +249,6 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
             }
         });
 
-        btnTambah.setBackground(new java.awt.Color(10, 212, 66));
-        btnTambah.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        btnTambah.setForeground(new java.awt.Color(255, 255, 255));
-        btnTambah.setText("TAMBAH");
-        btnTambah.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTambahActionPerformed(evt);
-            }
-        });
-
         btnCekHarga.setText("Cek Harga");
         btnCekHarga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -287,17 +283,63 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
         jLabel10.setForeground(new java.awt.Color(121, 122, 240));
         jLabel10.setText("DATA PESANAN");
 
-        btnUbah.setBackground(new java.awt.Color(231, 153, 37));
-        btnUbah.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        btnUbah.setForeground(new java.awt.Color(255, 255, 255));
-        btnUbah.setText("UBAH");
-        btnUbah.setMaximumSize(new java.awt.Dimension(87, 25));
-        btnUbah.setMinimumSize(new java.awt.Dimension(87, 25));
-        btnUbah.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUbahActionPerformed(evt);
+        BtnTambah.setBackground(new java.awt.Color(10, 212, 66));
+        BtnTambah.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BtnTambahMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BtnTambahMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                BtnTambahMousePressed(evt);
             }
         });
+
+        jLabel11.setText("TAMBAH");
+
+        javax.swing.GroupLayout BtnTambahLayout = new javax.swing.GroupLayout(BtnTambah);
+        BtnTambah.setLayout(BtnTambahLayout);
+        BtnTambahLayout.setHorizontalGroup(
+            BtnTambahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BtnTambahLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel11)
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+        BtnTambahLayout.setVerticalGroup(
+            BtnTambahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+        );
+
+        UbahBtn.setBackground(new java.awt.Color(231, 153, 37));
+        UbahBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                UbahBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                UbahBtnMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                UbahBtnMousePressed(evt);
+            }
+        });
+
+        jLabel12.setText("UBAH");
+
+        javax.swing.GroupLayout UbahBtnLayout = new javax.swing.GroupLayout(UbahBtn);
+        UbahBtn.setLayout(UbahBtnLayout);
+        UbahBtnLayout.setHorizontalGroup(
+            UbahBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(UbahBtnLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel12)
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+        UbahBtnLayout.setVerticalGroup(
+            UbahBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -305,16 +347,18 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnUbah, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
-                .addComponent(btnTambah)
-                .addGap(323, 323, 323))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(251, 251, 251))
+                .addComponent(UbahBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
+                .addComponent(BtnTambah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(321, 321, 321))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(344, 344, 344)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(326, 326, 326)
+                        .addComponent(jLabel10))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -354,11 +398,8 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbJenis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(326, 326, 326)
-                        .addComponent(jLabel10)))
-                .addContainerGap(158, Short.MAX_VALUE))
+                                    .addComponent(cmbJenis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -371,7 +412,7 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
                     .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
                     .addComponent(txtTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
@@ -393,12 +434,12 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
                             .addComponent(jLabel4)
                             .addComponent(txtHarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnCekHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnUbah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnTambah)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(BtnTambah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(UbahBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -438,12 +479,6 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
         txtHarga.setText(null);
     }//GEN-LAST:event_cmbJenisActionPerformed
 
-    private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
-        controller.insertPelangganView(this);
-        txtHarga.setText(null);
-        cmbJenis.setSelectedIndex(0);
-    }//GEN-LAST:event_btnTambahActionPerformed
-
     private void btnCekHargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCekHargaActionPerformed
         jenis = (String) cmbJenis.getSelectedItem();
         if ("----PILIH----".equals(jenis)){
@@ -461,19 +496,44 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTanggalActionPerformed
 
-    private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahActionPerformed
+    private void BtnTambahMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnTambahMousePressed
+        controller.insertPelangganView(this);
+        txtHarga.setText(null);
+        cmbJenis.setSelectedIndex(0);
+    }//GEN-LAST:event_BtnTambahMousePressed
+
+    private void UbahBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UbahBtnMousePressed
         controller.updatePelanggan(this);
-    }//GEN-LAST:event_btnUbahActionPerformed
+    }//GEN-LAST:event_UbahBtnMousePressed
+
+    private void BtnTambahMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnTambahMouseEntered
+        BtnTambah.setBackground(new Color(0 ,187 ,41));
+    }//GEN-LAST:event_BtnTambahMouseEntered
+
+    private void BtnTambahMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnTambahMouseExited
+        BtnTambah.setBackground(new Color(10,212,66));
+    }//GEN-LAST:event_BtnTambahMouseExited
+
+    private void UbahBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UbahBtnMouseEntered
+        UbahBtn.setBackground(new Color(206 ,128 ,12));
+        
+    }//GEN-LAST:event_UbahBtnMouseEntered
+
+    private void UbahBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UbahBtnMouseExited
+       UbahBtn.setBackground(new Color(231,153,37));
+    }//GEN-LAST:event_UbahBtnMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel BtnTambah;
     private javax.swing.JTable TablePelanggan;
+    private javax.swing.JPanel UbahBtn;
     private javax.swing.JButton btnCekHarga;
-    private javax.swing.JButton btnTambah;
-    private javax.swing.JButton btnUbah;
     private javax.swing.JComboBox<String> cmbJenis;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -520,5 +580,24 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
     public void loadDatabase() throws SQLException, pelangganException {
         PelangganDao dao = LavanderiaDatabase.getPelangganDao();
         model2.setList(dao.selectAllPelanggan());
+    }
+    
+    @Override
+    public void valueChanged(ListSelectionEvent lse) {
+        try {
+            Pelanggan model = model2.get(TablePelanggan.getSelectedRow()); 
+            txtId.setText(model.getNoid()+"");
+            txtTanggal.setText(model.getTanggal());
+            txtNama.setText(model.getNama());
+            txtAlamat.setText(model.getAlamat());
+            txtTelp.setText(model.getTelp());
+            
+            txtBerat.setText(String.valueOf(model.getBerat()));
+            txtHarga.setText(String.valueOf(model.getHarga()));
+            
+        
+    } catch (IndexOutOfBoundsException exception){
+        
+    }
     }
 }

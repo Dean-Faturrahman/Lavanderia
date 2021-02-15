@@ -151,6 +151,7 @@ public class PelangganModel {
         
         Pelanggan pelanggan = new Pelanggan();
         pelanggan.setNama(nama);
+        pelanggan.setTanggal(tanggal);
         pelanggan.setAlamat(alamat);
         pelanggan.setTelp(telp);
         pelanggan.setJenis(jenis);        

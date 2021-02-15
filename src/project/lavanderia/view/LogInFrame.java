@@ -6,6 +6,7 @@
 package project.lavanderia.view;
 
 
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -47,9 +48,9 @@ public class LogInFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         USERNAME1 = new javax.swing.JTextField();
-        custombtn = new javax.swing.JPanel();
+        LoginBtn = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        custombtn1 = new javax.swing.JPanel();
+        RegisterBtn = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         PASSWORD1 = new javax.swing.JPasswordField();
         jPanel2 = new javax.swing.JPanel();
@@ -73,10 +74,16 @@ public class LogInFrame extends javax.swing.JFrame {
             }
         });
 
-        custombtn.setBackground(new java.awt.Color(121, 122, 240));
-        custombtn.addMouseListener(new java.awt.event.MouseAdapter() {
+        LoginBtn.setBackground(new java.awt.Color(121, 122, 240));
+        LoginBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                LoginBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                LoginBtnMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                custombtnMousePressed(evt);
+                LoginBtnMousePressed(evt);
             }
         });
 
@@ -84,27 +91,33 @@ public class LogInFrame extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("LOG IN");
 
-        javax.swing.GroupLayout custombtnLayout = new javax.swing.GroupLayout(custombtn);
-        custombtn.setLayout(custombtnLayout);
-        custombtnLayout.setHorizontalGroup(
-            custombtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, custombtnLayout.createSequentialGroup()
+        javax.swing.GroupLayout LoginBtnLayout = new javax.swing.GroupLayout(LoginBtn);
+        LoginBtn.setLayout(LoginBtnLayout);
+        LoginBtnLayout.setHorizontalGroup(
+            LoginBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginBtnLayout.createSequentialGroup()
                 .addContainerGap(56, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(54, 54, 54))
         );
-        custombtnLayout.setVerticalGroup(
-            custombtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, custombtnLayout.createSequentialGroup()
+        LoginBtnLayout.setVerticalGroup(
+            LoginBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginBtnLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addContainerGap())
         );
 
-        custombtn1.setBackground(new java.awt.Color(121, 122, 240));
-        custombtn1.addMouseListener(new java.awt.event.MouseAdapter() {
+        RegisterBtn.setBackground(new java.awt.Color(121, 122, 240));
+        RegisterBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RegisterBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                RegisterBtnMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                custombtn1MousePressed(evt);
+                RegisterBtnMousePressed(evt);
             }
         });
 
@@ -112,18 +125,18 @@ public class LogInFrame extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("REGISTER");
 
-        javax.swing.GroupLayout custombtn1Layout = new javax.swing.GroupLayout(custombtn1);
-        custombtn1.setLayout(custombtn1Layout);
-        custombtn1Layout.setHorizontalGroup(
-            custombtn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(custombtn1Layout.createSequentialGroup()
+        javax.swing.GroupLayout RegisterBtnLayout = new javax.swing.GroupLayout(RegisterBtn);
+        RegisterBtn.setLayout(RegisterBtnLayout);
+        RegisterBtnLayout.setHorizontalGroup(
+            RegisterBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegisterBtnLayout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addComponent(jLabel4)
                 .addContainerGap(46, Short.MAX_VALUE))
         );
-        custombtn1Layout.setVerticalGroup(
-            custombtn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(custombtn1Layout.createSequentialGroup()
+        RegisterBtnLayout.setVerticalGroup(
+            RegisterBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegisterBtnLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -145,9 +158,9 @@ public class LogInFrame extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(109, 109, 109)
-                            .addComponent(custombtn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(RegisterBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(128, 128, 128)
-                            .addComponent(custombtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(LoginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(PASSWORD1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(USERNAME1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -164,8 +177,8 @@ public class LogInFrame extends javax.swing.JFrame {
                 .addComponent(PASSWORD1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(custombtn1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(custombtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(RegisterBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LoginBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(298, 298, 298))
         );
 
@@ -201,13 +214,14 @@ public class LogInFrame extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void USERNAME1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_USERNAME1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_USERNAME1ActionPerformed
 
-    private void custombtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_custombtnMousePressed
+    private void LoginBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginBtnMousePressed
         try {
             // TODO add your handling code here:
             Statement statement = (Statement) LavanderiaDatabase.getConnection().createStatement();
@@ -232,12 +246,28 @@ public class LogInFrame extends javax.swing.JFrame {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(rootPane, "gagal");
         }
-    }//GEN-LAST:event_custombtnMousePressed
+    }//GEN-LAST:event_LoginBtnMousePressed
 
-    private void custombtn1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_custombtn1MousePressed
+    private void RegisterBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterBtnMousePressed
         new RegisterFrame().show();
         this.dispose();
-    }//GEN-LAST:event_custombtn1MousePressed
+    }//GEN-LAST:event_RegisterBtnMousePressed
+
+    private void LoginBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginBtnMouseEntered
+        LoginBtn.setBackground(new Color(108, 109, 227));
+    }//GEN-LAST:event_LoginBtnMouseEntered
+
+    private void LoginBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginBtnMouseExited
+        LoginBtn.setBackground(new Color(121, 122, 240));
+    }//GEN-LAST:event_LoginBtnMouseExited
+
+    private void RegisterBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterBtnMouseEntered
+        RegisterBtn.setBackground(new Color(108, 109, 227));
+    }//GEN-LAST:event_RegisterBtnMouseEntered
+
+    private void RegisterBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterBtnMouseExited
+        RegisterBtn.setBackground(new Color(121, 122, 240));
+    }//GEN-LAST:event_RegisterBtnMouseExited
 
     /**
      * @param args the command line arguments
@@ -275,10 +305,10 @@ public class LogInFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel LoginBtn;
     private javax.swing.JPasswordField PASSWORD1;
+    private javax.swing.JPanel RegisterBtn;
     private javax.swing.JTextField USERNAME1;
-    private javax.swing.JPanel custombtn;
-    private javax.swing.JPanel custombtn1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

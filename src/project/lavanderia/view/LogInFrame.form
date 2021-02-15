@@ -9,7 +9,7 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -68,9 +68,9 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
-                              <Component id="custombtn1" min="-2" max="-2" attributes="0"/>
+                              <Component id="RegisterBtn" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
-                              <Component id="custombtn" min="-2" max="-2" attributes="0"/>
+                              <Component id="LoginBtn" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" alignment="1" groupAlignment="0" attributes="0">
@@ -93,8 +93,8 @@
                   <Component id="PASSWORD1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="36" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="custombtn1" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="custombtn" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="RegisterBtn" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="LoginBtn" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="298" max="-2" attributes="0"/>
               </Group>
@@ -127,14 +127,16 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="USERNAME1ActionPerformed"/>
           </Events>
         </Component>
-        <Container class="javax.swing.JPanel" name="custombtn">
+        <Container class="javax.swing.JPanel" name="LoginBtn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f0" green="7a" red="79" type="rgb"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="custombtnMousePressed"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="LoginBtnMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="LoginBtnMouseExited"/>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="LoginBtnMousePressed"/>
           </Events>
 
           <Layout>
@@ -171,14 +173,16 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="custombtn1">
+        <Container class="javax.swing.JPanel" name="RegisterBtn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f0" green="7a" red="79" type="rgb"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="custombtn1MousePressed"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="RegisterBtnMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="RegisterBtnMouseExited"/>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="RegisterBtnMousePressed"/>
           </Events>
 
           <Layout>

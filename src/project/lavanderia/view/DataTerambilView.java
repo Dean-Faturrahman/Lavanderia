@@ -5,6 +5,9 @@
  */
 package project.lavanderia.view;
 
+import java.awt.Color;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -25,7 +28,7 @@ public class DataTerambilView extends javax.swing.JPanel {
     private TabelPesananModel model;
     private Pesanan pesanan;
     private DefaultTableModel tabModel;
-    
+    private MainFrame frame;
     /**
      * Creates new form DataTerambil
      */
@@ -72,7 +75,10 @@ public class DataTerambilView extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablePesanan = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
+        RefreshBtn = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        HapusBtn = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(181, 174, 236));
 
@@ -92,24 +98,80 @@ public class DataTerambilView extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(TablePesanan);
 
-        jButton2.setBackground(new java.awt.Color(10, 212, 66));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("OK");
+        RefreshBtn.setBackground(new java.awt.Color(0, 204, 255));
+        RefreshBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RefreshBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                RefreshBtnMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                RefreshBtnMousePressed(evt);
+            }
+        });
+
+        jLabel2.setText("REFRESH");
+
+        javax.swing.GroupLayout RefreshBtnLayout = new javax.swing.GroupLayout(RefreshBtn);
+        RefreshBtn.setLayout(RefreshBtnLayout);
+        RefreshBtnLayout.setHorizontalGroup(
+            RefreshBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RefreshBtnLayout.createSequentialGroup()
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18))
+        );
+        RefreshBtnLayout.setVerticalGroup(
+            RefreshBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        HapusBtn.setBackground(new java.awt.Color(255, 51, 51));
+        HapusBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                HapusBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                HapusBtnMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                HapusBtnMousePressed(evt);
+            }
+        });
+
+        jLabel3.setText("HAPUS");
+
+        javax.swing.GroupLayout HapusBtnLayout = new javax.swing.GroupLayout(HapusBtn);
+        HapusBtn.setLayout(HapusBtnLayout);
+        HapusBtnLayout.setHorizontalGroup(
+            HapusBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HapusBtnLayout.createSequentialGroup()
+                .addContainerGap(26, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(24, 24, 24))
+        );
+        HapusBtnLayout.setVerticalGroup(
+            HapusBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton2)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(21, 21, 21)
-                            .addComponent(jLabel1))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(103, 103, 103)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(103, 103, 103)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(HapusBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(348, 348, 348)
+                                .addComponent(RefreshBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(100, Short.MAX_VALUE))
         );
@@ -120,17 +182,82 @@ public class DataTerambilView extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(HapusBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(RefreshBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void RefreshBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RefreshBtnMousePressed
+        try {
+            Object[] judul_kolom = {"NOID","TANGGAL", "NAMA", "ALAMAT", "TELP", "JENIS", "BERAT", "HARGA"};
+            tabModel=new DefaultTableModel(null,judul_kolom);
+            TablePesanan.setModel(tabModel);
+            
+            Statement stat = LavanderiaDatabase.getConnection().createStatement();
+            String sql  = "Select * from PESANAN_AMBIL";
+            ResultSet res   = stat.executeQuery(sql);             
+            while(res.next()){
+                Object[] data={
+                    res.getString("NOID"),
+                    res.getString("TANGGAL"),
+                    res.getString("NAMA"),                    
+                    res.getString("ALAMAT"),
+                    res.getString("TELP"),
+                    res.getString("JENIS"),
+                    res.getString("BERAT"),
+                    res.getString("HARGA"),
+                };
+                tabModel.addRow(data);
+            }             
+        } catch (Exception ex) {
+        System.err.println(ex.getMessage());
+        }
+    }//GEN-LAST:event_RefreshBtnMousePressed
+
+    private void HapusBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HapusBtnMousePressed
+        try{
+            int selectedRow = TablePesanan.getSelectedRow();
+            Object rowID = model.getValueAt(selectedRow,0);
+            
+            String delete = "DELETE FROM pesanan_ambil WHERE NOID = "+ rowID +"";
+            
+            Connection conn = LavanderiaDatabase.getConnection();
+            PreparedStatement PS = conn.prepareStatement(delete);
+            PS.execute();
+            JOptionPane.showMessageDialog(null, "Data dengan ID "+ rowID + " sudah di hapus");
+        }catch (Exception ex) {
+            System.err.println(ex.getMessage());
+        }
+    }//GEN-LAST:event_HapusBtnMousePressed
+
+    private void RefreshBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RefreshBtnMouseEntered
+       RefreshBtn.setBackground(new Color(0 ,179, 230));
+        
+    }//GEN-LAST:event_RefreshBtnMouseEntered
+
+    private void RefreshBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RefreshBtnMouseExited
+        RefreshBtn.setBackground(new Color(0,204,255));
+    }//GEN-LAST:event_RefreshBtnMouseExited
+
+    private void HapusBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HapusBtnMouseEntered
+        HapusBtn.setBackground(new Color(230 ,26, 26));
+    }//GEN-LAST:event_HapusBtnMouseEntered
+
+    private void HapusBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HapusBtnMouseExited
+        HapusBtn.setBackground(new Color(255,51,51));
+    }//GEN-LAST:event_HapusBtnMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel HapusBtn;
+    private javax.swing.JPanel RefreshBtn;
     private javax.swing.JTable TablePesanan;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

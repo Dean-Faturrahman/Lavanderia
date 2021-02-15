@@ -5,8 +5,10 @@
  */
 package project.lavanderia.view;
 
+import java.awt.Color;
 import project.lavanderia.error.pelangganException;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -41,8 +43,13 @@ public class MainFrame extends javax.swing.JFrame {
         LogoUser = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        BackBtn = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        HomeBtn = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         BGPanel = new javax.swing.JPanel();
         HomePanel = new javax.swing.JPanel();
+        homeView1 = new project.lavanderia.view.HomeView();
         TambahPesananPanel = new javax.swing.JPanel();
         tambahAntrianView1 = new project.lavanderia.view.TambahAntrianView();
         AmbilPesananPanel = new javax.swing.JPanel();
@@ -62,6 +69,12 @@ public class MainFrame extends javax.swing.JFrame {
         AmbilBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 AmbilBtnMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AmbilBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AmbilBtnMouseExited(evt);
             }
         });
 
@@ -91,6 +104,12 @@ public class MainFrame extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TerambilBtnMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                TerambilBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                TerambilBtnMouseExited(evt);
+            }
         });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -118,6 +137,12 @@ public class MainFrame extends javax.swing.JFrame {
         TambahBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TambahBtnMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                TambahBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                TambahBtnMouseExited(evt);
             }
         });
 
@@ -147,17 +172,84 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/lavanderia/view/logouser.png"))); // NOI18N
 
+        BackBtn.setBackground(new java.awt.Color(255, 51, 51));
+        BackBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BackBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BackBtnMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                BackBtnMousePressed(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel7.setText("←");
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel7MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel7MouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout BackBtnLayout = new javax.swing.GroupLayout(BackBtn);
+        BackBtn.setLayout(BackBtnLayout);
+        BackBtnLayout.setHorizontalGroup(
+            BackBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BackBtnLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        BackBtnLayout.setVerticalGroup(
+            BackBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BackBtnLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel7))
+        );
+
+        HomeBtn.setBackground(new java.awt.Color(255, 206, 217));
+        HomeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                HomeBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                HomeBtnMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                HomeBtnMousePressed(evt);
+            }
+        });
+
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel4.setText("Home");
+
+        javax.swing.GroupLayout HomeBtnLayout = new javax.swing.GroupLayout(HomeBtn);
+        HomeBtn.setLayout(HomeBtnLayout);
+        HomeBtnLayout.setHorizontalGroup(
+            HomeBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HomeBtnLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        HomeBtnLayout.setVerticalGroup(
+            HomeBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout MenuPanelLayout = new javax.swing.GroupLayout(MenuPanel);
         MenuPanel.setLayout(MenuPanelLayout);
         MenuPanelLayout.setHorizontalGroup(
             MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuPanelLayout.createSequentialGroup()
-                .addGap(0, 46, Short.MAX_VALUE)
-                .addGroup(MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TambahBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AmbilBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TerambilBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41))
             .addGroup(MenuPanelLayout.createSequentialGroup()
                 .addGroup(MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MenuPanelLayout.createSequentialGroup()
@@ -169,10 +261,23 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGap(97, 97, 97)
                         .addComponent(jLabel1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuPanelLayout.createSequentialGroup()
+                .addGap(0, 46, Short.MAX_VALUE)
+                .addGroup(MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TambahBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AmbilBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TerambilBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(BackBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(HomeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         MenuPanelLayout.setVerticalGroup(
             MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MenuPanelLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuPanelLayout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addComponent(LogoUser)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -185,7 +290,11 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(AmbilBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65)
                 .addComponent(TerambilBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(HomeBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BackBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         BGPanel.setBackground(new java.awt.Color(250, 251, 255));
@@ -197,11 +306,11 @@ public class MainFrame extends javax.swing.JFrame {
         HomePanel.setLayout(HomePanelLayout);
         HomePanelLayout.setHorizontalGroup(
             HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1024, Short.MAX_VALUE)
+            .addComponent(homeView1, javax.swing.GroupLayout.DEFAULT_SIZE, 1024, Short.MAX_VALUE)
         );
         HomePanelLayout.setVerticalGroup(
             HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addComponent(homeView1, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
         );
 
         BGPanel.add(HomePanel, "card2");
@@ -212,9 +321,9 @@ public class MainFrame extends javax.swing.JFrame {
         TambahPesananPanel.setLayout(TambahPesananPanelLayout);
         TambahPesananPanelLayout.setHorizontalGroup(
             TambahPesananPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TambahPesananPanelLayout.createSequentialGroup()
-                .addComponent(tambahAntrianView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TambahPesananPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(tambahAntrianView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         TambahPesananPanelLayout.setVerticalGroup(
             TambahPesananPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,16 +341,16 @@ public class MainFrame extends javax.swing.JFrame {
         AmbilPesananPanelLayout.setHorizontalGroup(
             AmbilPesananPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AmbilPesananPanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(63, 63, 63)
                 .addComponent(ambilPesananView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
         AmbilPesananPanelLayout.setVerticalGroup(
             AmbilPesananPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AmbilPesananPanelLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AmbilPesananPanelLayout.createSequentialGroup()
+                .addContainerGap(32, Short.MAX_VALUE)
                 .addComponent(ambilPesananView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         BGPanel.add(AmbilPesananPanel, "card5");
@@ -253,16 +362,16 @@ public class MainFrame extends javax.swing.JFrame {
         PesananTerambilPanelLayout.setHorizontalGroup(
             PesananTerambilPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PesananTerambilPanelLayout.createSequentialGroup()
-                .addGap(124, 124, 124)
+                .addGap(120, 120, 120)
                 .addComponent(dataTerambilView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(181, Short.MAX_VALUE))
+                .addContainerGap(185, Short.MAX_VALUE))
         );
         PesananTerambilPanelLayout.setVerticalGroup(
             PesananTerambilPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PesananTerambilPanelLayout.createSequentialGroup()
-                .addGap(88, 88, 88)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PesananTerambilPanelLayout.createSequentialGroup()
+                .addContainerGap(130, Short.MAX_VALUE)
                 .addComponent(dataTerambilView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addGap(116, 116, 116))
         );
 
         BGPanel.add(PesananTerambilPanel, "card6");
@@ -284,6 +393,7 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void TambahBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TambahBtnMouseClicked
@@ -315,6 +425,80 @@ public class MainFrame extends javax.swing.JFrame {
         BGPanel.repaint();
         BGPanel.revalidate();
     }//GEN-LAST:event_TerambilBtnMouseClicked
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+        if (JOptionPane.showConfirmDialog(this, "Anda Yakin")==JOptionPane.OK_OPTION) {
+        new LogInFrame().show();
+        this.dispose();
+        }
+    }//GEN-LAST:event_jLabel7MouseClicked
+
+    private void BackBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackBtnMousePressed
+        
+        if (JOptionPane.showConfirmDialog(this, "Anda Yakin")==JOptionPane.OK_OPTION) {
+        new LogInFrame().show();
+        this.dispose();
+        }
+    }//GEN-LAST:event_BackBtnMousePressed
+
+    private void HomeBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeBtnMousePressed
+        
+        BGPanel.removeAll();
+        BGPanel.repaint();
+        BGPanel.revalidate();
+        
+        BGPanel.add(HomePanel);
+        BGPanel.repaint();
+        BGPanel.revalidate();
+    }//GEN-LAST:event_HomeBtnMousePressed
+
+    private void TambahBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TambahBtnMouseEntered
+        TambahBtn.setBackground(new Color(230 ,181 ,192));
+    }//GEN-LAST:event_TambahBtnMouseEntered
+
+    private void TambahBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TambahBtnMouseExited
+        TambahBtn.setBackground(new Color(255,206,217));
+    }//GEN-LAST:event_TambahBtnMouseExited
+
+    private void AmbilBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AmbilBtnMouseEntered
+        AmbilBtn.setBackground(new Color(230 ,181 ,192));
+    }//GEN-LAST:event_AmbilBtnMouseEntered
+
+    private void AmbilBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AmbilBtnMouseExited
+        AmbilBtn.setBackground(new Color(255,206,217));
+    }//GEN-LAST:event_AmbilBtnMouseExited
+
+    private void TerambilBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TerambilBtnMouseEntered
+        TerambilBtn.setBackground(new Color(230 ,181 ,192));
+    }//GEN-LAST:event_TerambilBtnMouseEntered
+
+    private void TerambilBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TerambilBtnMouseExited
+        TerambilBtn.setBackground(new Color(255,206,217));
+    }//GEN-LAST:event_TerambilBtnMouseExited
+
+    private void BackBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackBtnMouseEntered
+        BackBtn.setBackground(new Color(230 ,26, 26));
+    }//GEN-LAST:event_BackBtnMouseEntered
+
+    private void BackBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackBtnMouseExited
+        BackBtn.setBackground(new Color(255,51,51));
+    }//GEN-LAST:event_BackBtnMouseExited
+
+    private void HomeBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeBtnMouseEntered
+       HomeBtn.setBackground(new Color(230 ,181 ,192));
+    }//GEN-LAST:event_HomeBtnMouseEntered
+
+    private void HomeBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeBtnMouseExited
+        HomeBtn.setBackground(new Color(255,206,217));
+    }//GEN-LAST:event_HomeBtnMouseExited
+
+    private void jLabel7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseEntered
+        BackBtn.setBackground(new Color(230 ,26, 26));
+    }//GEN-LAST:event_jLabel7MouseEntered
+
+    private void jLabel7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseExited
+         BackBtn.setBackground(new Color(255,51,51));
+    }//GEN-LAST:event_jLabel7MouseExited
 
     /**
      * @param args the command line arguments
@@ -355,6 +539,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel AmbilBtn;
     private javax.swing.JPanel AmbilPesananPanel;
     private javax.swing.JPanel BGPanel;
+    private javax.swing.JPanel BackBtn;
+    private javax.swing.JPanel HomeBtn;
     private javax.swing.JPanel HomePanel;
     private javax.swing.JLabel LogoUser;
     private javax.swing.JPanel MenuPanel;
@@ -364,11 +550,14 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel TerambilBtn;
     private project.lavanderia.view.AmbilPesananView ambilPesananView1;
     private project.lavanderia.view.DataTerambilView dataTerambilView1;
+    private project.lavanderia.view.HomeView homeView1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private project.lavanderia.view.TambahAntrianView tambahAntrianView1;
     // End of variables declaration//GEN-END:variables
 }
