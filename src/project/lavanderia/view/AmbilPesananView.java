@@ -83,7 +83,7 @@ public class AmbilPesananView extends javax.swing.JPanel {
                 tabModel.addRow(data);
             }             
         } catch (Exception ex) {
-        System.err.println(ex.getMessage());
+        JOptionPane.showMessageDialog(this, new Object[]{"Terjadi error dengan pesan ", ex.getMessage()});
         }
     }
     
@@ -253,7 +253,7 @@ public class AmbilPesananView extends javax.swing.JPanel {
 
             
         } catch (Exception ex) {
-            System.err.println(ex.getMessage());
+            JOptionPane.showMessageDialog(this, new Object[]{"Terjadi error dengan pesan ", ex.getMessage()});
         }
         
         try {
@@ -278,7 +278,7 @@ public class AmbilPesananView extends javax.swing.JPanel {
                 tabModel.addRow(data);
             }             
         } catch (Exception ex) {
-        System.err.println(ex.getMessage());
+        JOptionPane.showMessageDialog(this, new Object[]{"Terjadi error dengan pesan ", ex.getMessage()});
         }
     }//GEN-LAST:event_btnAmbilMousePressed
 

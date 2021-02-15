@@ -213,7 +213,7 @@ public class DataTerambilView extends javax.swing.JPanel {
                 tabModel.addRow(data);
             }             
         } catch (Exception ex) {
-        System.err.println(ex.getMessage());
+        JOptionPane.showMessageDialog(this, new Object[]{"Terjadi error dengan pesan ", ex.getMessage()});
         }
     }//GEN-LAST:event_RefreshBtnMousePressed
 
@@ -229,7 +229,7 @@ public class DataTerambilView extends javax.swing.JPanel {
             PS.execute();
             JOptionPane.showMessageDialog(null, "Data dengan ID "+ rowID + " sudah di hapus");
         }catch (Exception ex) {
-            System.err.println(ex.getMessage());
+            JOptionPane.showMessageDialog(this, new Object[]{"Terjadi error dengan pesan ", ex.getMessage()});
         }
     }//GEN-LAST:event_HapusBtnMousePressed
 
