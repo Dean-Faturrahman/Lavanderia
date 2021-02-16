@@ -54,12 +54,14 @@ public class LogInFrame extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         PASSWORD1 = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LOG IN");
         setBackground(new java.awt.Color(121, 122, 240));
         setPreferredSize(new java.awt.Dimension(1280, 720));
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(640, 720));
@@ -71,6 +73,11 @@ public class LogInFrame extends javax.swing.JFrame {
         USERNAME1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         USERNAME1.setText("username");
         USERNAME1.setPreferredSize(new java.awt.Dimension(448, 62));
+        USERNAME1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                USERNAME1MousePressed(evt);
+            }
+        });
         USERNAME1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 USERNAME1ActionPerformed(evt);
@@ -148,8 +155,13 @@ public class LogInFrame extends javax.swing.JFrame {
         PASSWORD1.setBackground(new java.awt.Color(222, 222, 222));
         PASSWORD1.setText("password");
         PASSWORD1.setPreferredSize(new java.awt.Dimension(448, 62));
+        PASSWORD1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                PASSWORD1MousePressed(evt);
+            }
+        });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ACER\\Downloads\\washing-machine100.png")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/lavanderia/view/washing-machine100.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -161,17 +173,20 @@ public class LogInFrame extends javax.swing.JFrame {
                         .addGap(109, 109, 109)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(PASSWORD1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(USERNAME1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(USERNAME1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(RegisterBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(LoginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(229, 229, 229)
+                        .addGap(267, 267, 267)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(228, 228, 228)
                         .addComponent(jLabel2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(267, 267, 267)
-                        .addComponent(jLabel1)))
+                        .addGap(258, 258, 258)
+                        .addComponent(jLabel5)))
                 .addContainerGap(83, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -179,11 +194,13 @@ public class LogInFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(69, 69, 69)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addGap(64, 64, 64)
+                .addGap(54, 54, 54)
                 .addComponent(USERNAME1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGap(79, 79, 79)
                 .addComponent(PASSWORD1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -216,7 +233,7 @@ public class LogInFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 749, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 790, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -276,6 +293,18 @@ public class LogInFrame extends javax.swing.JFrame {
         RegisterBtn.setBackground(new Color(121, 122, 240));
     }//GEN-LAST:event_RegisterBtnMouseExited
 
+    private void USERNAME1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_USERNAME1MousePressed
+        if (USERNAME1.getText().equals("username")){
+            USERNAME1.setText(null);
+        }
+    }//GEN-LAST:event_USERNAME1MousePressed
+
+    private void PASSWORD1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PASSWORD1MousePressed
+        if (PASSWORD1.getText().equals("password")){
+            PASSWORD1.setText(null);
+        }
+    }//GEN-LAST:event_PASSWORD1MousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -320,6 +349,7 @@ public class LogInFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

@@ -65,6 +65,7 @@ public class RegisterFrame extends javax.swing.JFrame implements AdminListener{
         jLabel5 = new javax.swing.JLabel();
         AboutBtn = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -81,19 +82,28 @@ public class RegisterFrame extends javax.swing.JFrame implements AdminListener{
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("REGISTER");
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ACER\\Downloads\\washing-machine100.png")); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
         jLabel2.setText("Register.");
 
         usernameReg.setText("username");
         usernameReg.setPreferredSize(new java.awt.Dimension(448, 62));
+        usernameReg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                usernameRegMousePressed(evt);
+            }
+        });
 
         passwordReg.setText("password");
         passwordReg.setPreferredSize(new java.awt.Dimension(448, 62));
+        passwordReg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                passwordRegMousePressed(evt);
+            }
+        });
 
         btnSubmit.setBackground(new java.awt.Color(121, 122, 240));
         btnSubmit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -175,6 +185,12 @@ public class RegisterFrame extends javax.swing.JFrame implements AdminListener{
 
         AboutBtn.setBackground(new java.awt.Color(196, 196, 196));
         AboutBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AboutBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AboutBtnMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 AboutBtnMousePressed(evt);
             }
@@ -197,6 +213,8 @@ public class RegisterFrame extends javax.swing.JFrame implements AdminListener{
             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
         );
 
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/lavanderia/view/washing-machine100.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -211,35 +229,39 @@ public class RegisterFrame extends javax.swing.JFrame implements AdminListener{
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(passwordReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(135, 135, 135)
-                                .addComponent(usernameReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(261, 261, 261)
-                                .addComponent(jLabel2))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(263, 263, 263)
-                        .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(135, 135, 135)
+                            .addComponent(usernameReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(310, 310, 310)
-                        .addComponent(jLabel1)))
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(271, 271, 271)
+                        .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(256, 256, 256)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(300, 300, 300)
+                        .addComponent(jLabel8)))
                 .addContainerGap(146, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(jLabel1)
+                .addGap(49, 49, 49)
+                .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addGap(60, 60, 60)
+                .addGap(55, 55, 55)
                 .addComponent(usernameReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addGap(48, 48, 48)
                 .addComponent(passwordReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addGap(18, 18, 18)
                 .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                .addGap(74, 74, 74)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(AboutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -285,8 +307,8 @@ public class RegisterFrame extends javax.swing.JFrame implements AdminListener{
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void AboutBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AboutBtnMousePressed
-        new About().show();
-        this.dispose();
+        About n = new About();
+        n.setVisible(true);
     }//GEN-LAST:event_AboutBtnMousePressed
 
     private void BackbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackbtnMouseEntered
@@ -307,6 +329,26 @@ public class RegisterFrame extends javax.swing.JFrame implements AdminListener{
     private void jLabel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseExited
         Backbtn.setBackground(new Color(196,196,196));
     }//GEN-LAST:event_jLabel5MouseExited
+
+    private void usernameRegMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usernameRegMousePressed
+        if (usernameReg.getText().equals("username")){
+            usernameReg.setText(null);
+        } 
+    }//GEN-LAST:event_usernameRegMousePressed
+
+    private void passwordRegMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordRegMousePressed
+       if (passwordReg.getText().equals("password")){
+            passwordReg.setText(null);
+        }
+    }//GEN-LAST:event_passwordRegMousePressed
+
+    private void AboutBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AboutBtnMouseEntered
+        AboutBtn.setBackground(new Color(171  ,171  ,171));
+    }//GEN-LAST:event_AboutBtnMouseEntered
+
+    private void AboutBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AboutBtnMouseExited
+        AboutBtn.setBackground(new Color(196,196,196));
+    }//GEN-LAST:event_AboutBtnMouseExited
 
     /**
      * @param args the command line arguments
@@ -353,6 +395,7 @@ public class RegisterFrame extends javax.swing.JFrame implements AdminListener{
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField passwordReg;
