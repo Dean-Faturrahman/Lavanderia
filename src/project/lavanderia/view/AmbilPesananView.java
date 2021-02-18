@@ -321,12 +321,20 @@ public class AmbilPesananView extends javax.swing.JPanel implements PelangganLis
     private void txtCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCariActionPerformed
         key = txtCari.getText();
         System.out.println(key);
-
-        if(key!=""){
+        try {
+            if(key!=""){
             cariData(key);
+        } else if (tabelDataPesanan.getRowCount() == 0){
+            txtCari.setText(null);
+            getData();
+            JOptionPane.showMessageDialog(null, "Data tidak ditemukan");            
         } else {
             getData();
         }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, new Object[]{"Terjadi error! Mohon restart aplikasi!", ex.getMessage()});
+        } 
+        
     }//GEN-LAST:event_txtCariActionPerformed
 
     private void RefreshBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RefreshBtnMousePressed

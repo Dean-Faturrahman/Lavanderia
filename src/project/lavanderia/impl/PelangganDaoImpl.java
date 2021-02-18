@@ -16,20 +16,21 @@ import java.util.logging.Logger;
 import project.lavanderia.entity.Pelanggan;
 import project.lavanderia.error.pelangganException;
 import project.lavanderia.service.PelangganDao;
+import project.lavanderia.view.HomeView;
 
 /**
  *
  * @author Dean
  */
 public class PelangganDaoImpl implements PelangganDao{
+    private HomeView hView;
     private Connection connection;
     
     private final String insertPelanggan = "INSERT INTO PELANGGAN"
             + " (NAMA, TANGGAL, ALAMAT, TELP, JENIS, BERAT, HARGA) VALUES"
-            + " (?,?,?,?,?,?,?)";
-    
+            + " (?,?,?,?,?,?,?)";    
     private final String updatePelanggan = "UPDATE PELANGGAN SET NAMA=?, ALAMAT=?, TELP=?, JENIS=?, BERAT=? WHERE NOID=?";
-  
+    private final String getJmlhData = "SELECT * FROM PELANGGAN";
     
     public PelangganDaoImpl(Connection connection) {
         this.connection = connection;
@@ -124,4 +125,4 @@ public class PelangganDaoImpl implements PelangganDao{
     public List<Pelanggan> selectAllPelanggan() throws pelangganException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-}
+            }

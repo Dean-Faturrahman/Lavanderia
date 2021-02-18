@@ -14,7 +14,7 @@ public class HomeView extends javax.swing.JPanel {
     /**
      * Creates new form HomeView
      */
-    public HomeView() {
+    public HomeView(){    
         initComponents();
     }
 
@@ -27,33 +27,42 @@ public class HomeView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(181, 174, 236));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel1.setText("HOME");
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 48)); // NOI18N
+        jLabel2.setText("WELCOME");
+
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 36)); // NOI18N
+        jLabel1.setText("LAVANDERIA");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel1)
-                .addContainerGap(579, Short.MAX_VALUE))
+                .addGap(221, 221, 221)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1))
+                .addContainerGap(236, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(64, 64, 64)
+                .addComponent(jLabel2)
+                .addGap(47, 47, 47)
                 .addComponent(jLabel1)
-                .addContainerGap(418, Short.MAX_VALUE))
+                .addContainerGap(256, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
