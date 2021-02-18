@@ -83,7 +83,7 @@ public class DataTerambilView extends javax.swing.JPanel {
         setBackground(new java.awt.Color(250, 251, 255));
 
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 48)); // NOI18N
-        jLabel1.setText("Data Terambil");
+        jLabel1.setText("Pesanan Terambil");
 
         TablePesanan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -176,16 +176,16 @@ public class DataTerambilView extends javax.swing.JPanel {
                         .addGap(106, 106, 106)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(298, 298, 298)
+                        .addGap(269, 269, 269)
                         .addComponent(jLabel1)))
                 .addContainerGap(130, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(75, 75, 75)
+                .addGap(73, 73, 73)
                 .addComponent(jLabel1)
-                .addGap(31, 31, 31)
+                .addGap(33, 33, 33)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)

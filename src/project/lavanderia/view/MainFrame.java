@@ -115,16 +115,16 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel6.setText("Data Terambil");
+        jLabel6.setText("Pesanan Terambil");
 
         javax.swing.GroupLayout TerambilBtnLayout = new javax.swing.GroupLayout(TerambilBtn);
         TerambilBtn.setLayout(TerambilBtnLayout);
         TerambilBtnLayout.setHorizontalGroup(
             TerambilBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TerambilBtnLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel6)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         TerambilBtnLayout.setVerticalGroup(
             TerambilBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
