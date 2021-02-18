@@ -159,7 +159,7 @@ public class PelangganModel {
         pelanggan.setHarga(harga);
         pelanggan.setNoid(noid);
         
-        dao.updatePelanggan(pelanggan);
+        dao.insertPelanggan(pelanggan);
         fireOnUpdate(pelanggan);
     }
     

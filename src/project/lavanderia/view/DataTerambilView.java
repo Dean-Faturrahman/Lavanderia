@@ -196,30 +196,32 @@ public class DataTerambilView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RefreshBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RefreshBtnMousePressed
-        try {
-            Object[] judul_kolom = {"NOID","TANGGAL", "NAMA", "ALAMAT", "TELP", "JENIS", "BERAT", "HARGA"};
-            tabModel=new DefaultTableModel(null,judul_kolom);
-            TablePesanan.setModel(tabModel);
+       //try {
+            //Object[] judul_kolom = {"NOID","TANGGAL", "NAMA", "ALAMAT", "TELP", "JENIS", "BERAT", "HARGA"};
+            //tabModel=new DefaultTableModel(null,judul_kolom);
+            //TablePesanan.setModel(tabModel);
             
-            Statement stat = LavanderiaDatabase.getConnection().createStatement();
-            String sql  = "Select * from PESANAN_AMBIL";
-            ResultSet res   = stat.executeQuery(sql);             
-            while(res.next()){
-                Object[] data={
-                    res.getString("NOID"),
-                    res.getString("TANGGAL"),
-                    res.getString("NAMA"),                    
-                    res.getString("ALAMAT"),
-                    res.getString("TELP"),
-                    res.getString("JENIS"),
-                    res.getString("BERAT"),
-                    res.getString("HARGA"),
-                };
-                tabModel.addRow(data);
-            }             
-        } catch (Exception ex) {
-        JOptionPane.showMessageDialog(this, new Object[]{"Terjadi error dengan pesan ", ex.getMessage()});
-        }
+            //Statement stat = LavanderiaDatabase.getConnection().createStatement();
+            //String sql  = "Select * from PESANAN_AMBIL";
+            //ResultSet res   = stat.executeQuery(sql);             
+            //while(res.next()){
+                //Object[] data={
+                    //res.getString("NOID"),
+                   //res.getString("TANGGAL"),
+                    //res.getString("NAMA"),                    
+                   //res.getString("ALAMAT"),
+                    //res.getString("TELP"),
+                   //res.getString("JENIS"),
+                    //res.getString("BERAT"),
+                   //res.getString("HARGA"),
+                //};
+               //tabModel.addRow(data);
+           // }             
+       // } catch (Exception ex) {
+        //JOptionPane.showMessageDialog(this, new Object[]{"Terjadi error dengan pesan ", ex.getMessage()});
+        //}
+        
+        
     }//GEN-LAST:event_RefreshBtnMousePressed
 
     private void HapusBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HapusBtnMousePressed

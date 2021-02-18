@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,6 +32,7 @@ public class PelangganDaoImpl implements PelangganDao{
     private final String updatePelanggan = "UPDATE PELANGGAN SET NAMA=?, "
             + "TANGGAL = ?, ALAMAT=?, TELP=?, JENIS=?, BERAT=? WHERE NOID=?";
   
+    private final String selectAll = "SELECT * FROM Pelanggan";
     
     public PelangganDaoImpl(Connection connection) {
         this.connection = connection;
@@ -124,6 +126,49 @@ public class PelangganDaoImpl implements PelangganDao{
 
     @Override
     public List<Pelanggan> selectAllPelanggan() throws pelangganException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Statement statement = null;
+        List<Pelanggan> list = new ArrayList<Pelanggan>();
+        
+        try {
+            connection.setAutoCommit(false);
+            statement = connection.createStatement();
+            ResultSet result = statement.executeQuery(selectAll);
+            Pelanggan pelanggan = null;
+            
+            while (result.next()) {
+                pelanggan = new Pelanggan();
+                pelanggan.setNoid(result.getInt("NOID"));
+                pelanggan.setTanggal(result.getString("TANGGAL"));
+                pelanggan.setNama(result.getString("NAMA"));
+                pelanggan.setAlamat(result.getString("ALAMAT"));
+                pelanggan.setTelp(result.getString("TELP"));
+                pelanggan.setJenis(result.getString("JENIS"));
+                pelanggan.setBerat(result.getDouble("BERAT"));
+                pelanggan.setHarga(result.getDouble("HARGA"));
+                list.add(pelanggan);
+            }
+            connection.commit();
+            return list;
+        } catch (SQLException e) {
+            try{
+                connection.rollback();
+            } catch(SQLException ex){
+                
+            }
+            throw new pelangganException(e.getMessage());
+        }finally{
+            try{
+                connection.setAutoCommit(true);
+            } catch(SQLException ex){
+                
+            }
+            if (statement!=null) {
+                try{
+                    statement.close();
+                }catch(SQLException e){
+                    
+                }
+            }
+        }
     }
 }

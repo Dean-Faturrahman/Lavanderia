@@ -40,7 +40,7 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
     public double total;
     public double intBerat;
     private LavanderiaDatabase db;
-    private TabelPelangganModel model2;
+    private TabelPelangganModel tabelmodel;
     private Pelanggan pelanggan;
     private DefaultTableModel tabModel;
 
@@ -48,7 +48,7 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
      * Creates new form TambahAntrianView
      */
     public TambahAntrianView() {
-        model2 = new TabelPelangganModel();
+        tabelmodel = new TabelPelangganModel();
         
         model = new PelangganModel();
         model.setListener(this);
@@ -59,10 +59,10 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
         initComponents();
         setTanggal(null);
         txtTanggal.setText(getTanggal());
-        model2 = new TabelPelangganModel();
+        tabelmodel = new TabelPelangganModel();
         TablePelanggan.getSelectionModel().addListSelectionListener(this);
-        TablePelanggan.setModel(model2);
-        getData();
+        TablePelanggan.setModel(tabelmodel);
+       // getData();
     }
 
     
@@ -121,28 +121,28 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
         this.harga = harga;
     } 
 
-    public void getData( ){
-        try{
-            Statement stat = LavanderiaDatabase.getConnection().createStatement();
-            String sql  = "Select * from PELANGGAN";
-            ResultSet res   = stat.executeQuery(sql);
-            while(res.next()){
-                pelanggan = new Pelanggan();
-                pelanggan.setNoid(res.getInt("NOID"));
-                pelanggan.setTanggal(res.getString("TANGGAL"));
-                pelanggan.setNama(res.getString("NAMA"));
-                pelanggan.setAlamat(res.getString("ALAMAT"));
-                pelanggan.setTelp(res.getString("TELP"));
-                pelanggan.setJenis(res.getString("JENIS"));
-                pelanggan.setBerat(res.getDouble("BERAT"));
-                pelanggan.setHarga(res.getDouble("HARGA"));
+    //public void getData( ){
+      //  try{
+        //    Statement stat = LavanderiaDatabase.getConnection().createStatement();
+          //  String sql  = "Select * from PELANGGAN";
+            //ResultSet res   = stat.executeQuery(sql);
+           // while(res.next()){
+             //   pelanggan = new Pelanggan();
+               // pelanggan.setNoid(res.getInt("NOID"));
+           //     elanggan.setTanggal(res.getString("TANGGAL"));
+             //   pelanggan.setNama(res.getString("NAMA"));
+             //   pelanggan.setAlamat(res.getString("ALAMAT"));
+             //   pelanggan.setTelp(res.getString("TELP"));
+             //   pelanggan.setJenis(res.getString("JENIS"));
+              //  pelanggan.setBerat(res.getDouble("BERAT"));
+               // pelanggan.setHarga(res.getDouble("HARGA"));
 
-                model2.add(pelanggan);
-            }
-        } catch(SQLException err){
-            JOptionPane.showMessageDialog(null, err.getMessage() );
-        }
-    }
+//                model2.add(pelanggan);
+    //        }
+      //  } catch(SQLException err){
+       //     JOptionPane.showMessageDialog(null, err.getMessage() );
+       // }
+    //}
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -566,7 +566,7 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
 
     @Override
     public void onInsert(Pelanggan pelanggan) {
-        model2.add(pelanggan);
+        tabelmodel.add(pelanggan);
     }
 
     @Override
@@ -577,18 +577,18 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
     @Override
     public void onUpdate(Pelanggan pelanggan) {
         int index = TablePelanggan.getSelectedRow();
-        model2.set(index, pelanggan);
+        tabelmodel.set(index, pelanggan);
     }
     
     public void loadDatabase() throws SQLException, pelangganException {
         PelangganDao dao = LavanderiaDatabase.getPelangganDao();
-        model2.setList(dao.selectAllPelanggan());
+        tabelmodel.setList(dao.selectAllPelanggan());
     }
     
     @Override
     public void valueChanged(ListSelectionEvent lse) {
         try {
-            Pelanggan model = model2.get(TablePelanggan.getSelectedRow()); 
+            Pelanggan model = tabelmodel.get(TablePelanggan.getSelectedRow()); 
             txtId.setText(model.getNoid()+"");
             txtTanggal.setText(model.getTanggal());
             txtNama.setText(model.getNama());
