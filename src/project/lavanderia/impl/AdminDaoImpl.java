@@ -37,7 +37,7 @@ public class AdminDaoImpl implements AdminDao{
             connection.setAutoCommit(false);
             statement = connection.prepareStatement(insertAdmin, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, admin.getUsername());
-            statement.setString(2, admin.getUsername());
+            statement.setString(2, admin.getPassword());
             statement.executeUpdate();
             
         } catch (SQLException e) {
